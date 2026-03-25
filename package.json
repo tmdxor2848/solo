@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "board",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "cors": "^2.8.6",
+    "ejs": "^5.0.1",
     "express": "^5.2.1"
   }
 }
