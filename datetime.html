@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DateTime</title>
+</head>
+<body>
+    <h1>날짜 지정하기</h1>
+    <input type="date">
+    <input type="month">
+    <input type="week">
+    <h1>시간 지정하기</h1>
+    <input type="time">
+    <input type="datetime-local">
+    <h1>날짜의 범위를 제한하여 입력</h1>
+    <input type="date" min="2026-04-07" max="2026-04-28">
+
+    <input type="date" id="dateInput">
+     <script>
+        const today = new Date();
+
+        // 3일 추가
+        today.setDate(today.getDate() + 3);
+
+        // YYYY-MM-DD 형식으로 변환
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+    
+        const day = String(today.getDate()).padStart(2, '0');
+
+        const minDate = `${year}-${month}-${day}`;
+
+
+        document.getElementById('dateInput').setAttribute('min', minDate);
+        
+        // 한 줄 버전
+        // const d = new Date();
+        // d.setDate(d.getDate() + 3);
+        // document.querySelector('#dateInput').min = d.toISOString().split('T')[0];
+    </script>
+    </body>
+</html>
