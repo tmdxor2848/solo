@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>placeholder</title>
+</head>
+<body>
+    <h1>레드향 주문하기</h1>
+    <form action="" autocomplete="off">
+    <!--  autocomplete="off" 자동완성 끔-->
+        <fieldset>
+            <legend>상품 선택</legend>
+             <h3>주문할 상품을 선택해 주세요</h3>
+
+  <p>
+    <input type="checkbox" name="order" value="gift_3kg">
+    선물용 3KG
+    <input type="number" name="gift_3kg_count" max="5" min="0" value="0"
+           oninput="this.value = Math.min(this.value, 5)">개
+    <small>(최대 5개)</small>
+  </p>
+
+  <p>
+    <input type="checkbox" name="order" value="gift_5kg">
+    선물용 5KG
+    <input type="number" name="gift_5kg_count" max="3" min="0" value="0"
+           oninput="this.value = Math.min(this.value, 3)">개
+    <small>(최대 3개)</small>
+  </p>
+
+  <p>
+    <input type="checkbox" name="order" value="home_3kg">
+    가정용 3KG
+    <input type="number" name="home_3kg_count" max="5" min="0" value="0"
+           oninput="this.value = Math.min(this.value, 5)">개
+    <small>(최대 5개)</small>
+  </p>
+
+  <p>
+    <input type="checkbox" name="order" value="home_5kg">
+    가정용 5KG
+    <input type="number" name="home_5kg_count" max="3" min="0" value="0"
+           oninput="this.value = Math.min(this.value, 3)">개
+    <small>(최대 3개)</small>
+  </p>
+  <h3>포장 선택</h3>
+  <input type="radio" name="packaging" value="yes" checked>선물 포장<br>
+  <input type="radio" name="packaging" value="no">선물 포장 안함
+
+        </fieldset>
+        </form>
+        <form action="">
+        <fieldset>
+            <legend>배송 정보</legend>
+            <ul>
+                <li>
+                  <label for="user-name">이름</label>  
+                  <input type="text" name="" id="user-name" autofocus>
+                  <!-- autofocus = 웹페이지를 불러오자마자 지정한 필드에 입력 커서가 표시됨 -->
+                </li>
+                <li>
+                  <label for="addr">배송주소</label>  
+                  <input type="text" name="" id="addr">
+                </li>
+                <li>
+                  <label for="mail">이메일 주소</label>  
+                  <input type="email" name="" id="mail">
+                </li>
+                <li>
+                  <label for="phone">연락처</label>  
+                  <input type="tel" name="" id="phone" placeholder="하이픈 빼고 입력해 주세요.">
+                </li>
+                <li>
+                    <label for="dateInput">배송 지정(주문일로부터 최소 3일 이후)</label>
+                    <input type="date" id="dateInput">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <script>
+        //한 줄 버전
+        const d = new Date();
+        d.setDate(d.getDate() + 3);
+        document.querySelector('#dateInput').min = d.toISOString().split('T')[0];
+                         //    d.toISOString() 날짜를 문자열로 변환   split('T') T기준으로 문자열 나눔       split('T')[0] 첫 번째 값(날짜 부분)만 가져옴  
+                         //  결과 2026-04-07T12:34:56.789Z             "2026-04-07T12:34:56.789Z".split('T');   결과 ["2026-04-07", "12:34:56.789Z"]
+    </script>
+</body>
+</html>
