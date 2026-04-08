@@ -1,0 +1,74 @@
+<!-- select와 option을 사용해 드롭다운 목록을 만들었음 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multi-data</title>
+</head>
+<body>
+    <h1>레드향 주문하기</h1>
+    <form action="" autocomplete="off">
+    <!--  autocomplete="off" 자동완성 끔-->
+        <fieldset>
+            <legend>상품 선택</legend>
+             <label for="prod1">상품 선택</label>
+             <select name="" id="prod1">
+                <option value="gift_3kg" selected>선물용 3KG</option>
+                <option value="gift_5kg">선물용 5KG</option>
+                <option value="home_3kg">가정용 3KG</option>
+                <option value="home_5kg">가정용 5KG</option>
+             </select>
+  <h3>포장 선택</h3>
+        <label for="prod2">포장여부</label>
+        <input type="text" id="prod2" list="pack">
+        <datalist id="pack">
+            <option value="package">선물 포장</option>
+            <option value="no_package">포장 안 함</option>
+        </datalist>
+        </fieldset>
+        </form>
+        <form action="">
+        <fieldset>
+            <legend>배송 정보</legend>
+            <ul style="list-style-type: none;">
+                <li>
+                  <label for="user-name">이름</label>  
+                  <input type="text" name="" id="user-name" autofocus required>
+                  <!-- autofocus = 웹페이지를 불러오자마자 지정한 필드에 입력 커서가 표시됨 -->
+                </li>
+                <li>
+                  <label for="addr">배송주소</label>  
+                  <input type="text" name="" id="addr" required>
+                </li>
+                <li>
+                  <label for="mail">이메일 주소</label>  
+                  <input type="email" name="" id="mail" required>
+                </li>
+                <li>
+                  <label for="phone">연락처</label>  
+                  <input type="tel" name="" id="phone" placeholder="하이픈 빼고 입력해 주세요." required>
+                </li>
+                <li>
+                    <label for="dateInput">배송 지정(주문일로부터 최소 3일 이후)</label>
+                    <input type="date" id="dateInput" required>
+                </li>
+                <label for="memo">메모</label>
+                <textarea name="memo" cols="40" rows="4" id=""></textarea>
+            </ul>
+        </fieldset>
+        <button type="submit">주문하기</button>
+        <button type="reset">취소하기</button>
+        
+    </form>
+    <script>
+        //한 줄 버전
+        const d = new Date();
+        d.setDate(d.getDate() + 3);
+        document.querySelector('#dateInput').min = d.toISOString().split('T')[0];
+                         //    d.toISOString() 날짜를 문자열로 변환   split('T') T기준으로 문자열 나눔       split('T')[0] 첫 번째 값(날짜 부분)만 가져옴  
+                         //  결과 2026-04-07T12:34:56.789Z             "2026-04-07T12:34:56.789Z".split('T');   결과 ["2026-04-07", "12:34:56.789Z"]
+    </script>
+</body>
+</html>
